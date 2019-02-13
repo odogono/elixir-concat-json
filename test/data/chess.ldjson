@@ -1,0 +1,208 @@
+# position of the entity on the board
+{ 
+    "@cmd": "register", 
+    "uri":"/component/position", 
+    "properties":[
+        { "name":"file", "type": "string" },
+        { "name":"rank", "type": "integer" }
+    ]
+}
+
+# the colour of the entity; white or black
+{
+    "@cmd": "register",
+    "uri": "/component/colour",
+    "properties":[
+        { "name":"colour", "type": "string", "enum": [ "white", "black" ] }
+    ]
+}
+
+# Traditionally of course a piece can only be of one 
+# type - in which case having a single 'type' component would
+# make sense. But since we are experimenting, lets let pieces
+# have the ability to have multiple capabilities
+
+{ "@cmd": "register", "uri": "/component/piece/king" }
+{ "@cmd": "register", "uri": "/component/piece/queen" }
+{ "@cmd": "register", "uri": "/component/piece/rook" }
+{ "@cmd": "register", "uri": "/component/piece/bishop" }
+{ "@cmd": "register", "uri": "/component/piece/knight" }
+{ "@cmd": "register", "uri": "/component/piece/pawn" }
+
+# the appearance component determines how the entity should appear
+{ 
+    "@cmd": "register", "uri": "/component/appearance", 
+    "properties":[
+        { "name":"type", "type": "string", "enum":[ "king", "queen", "rook", "bishop", "knight", "pawn" ] }
+    ]
+}
+
+# Create the entities
+
+# White 
+
+
+{ "@c":"/component/piece/rook" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"a", "rank":1 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/knight" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"b", "rank":1 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/bishop" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"c", "rank":1 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/queen" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"d", "rank":1 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/king" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"e", "rank":1 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/bishop" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"f", "rank":1 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/knight" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"g", "rank":1 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/rook" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"h", "rank":1 }
+{ "@cmd":"entity" }
+
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"a", "rank":2 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"b", "rank":2 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"c", "rank":2 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"d", "rank":2 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"e", "rank":2 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"f", "rank":2 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"g", "rank":2 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"white" }
+{ "@c":"/component/position", "file":"h", "rank":2 }
+{ "@cmd":"entity" }
+
+
+# black 
+
+{ "@c":"/component/piece/rook" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"a", "rank":8 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/knight" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"b", "rank":8 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/bishop" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"c", "rank":8 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/queen" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"d", "rank":8 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/king" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"e", "rank":8 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/bishop" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"f", "rank":8 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/knight" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"g", "rank":8 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/rook" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"h", "rank":8 }
+{ "@cmd":"entity" }
+
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"a", "rank":7 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"b", "rank":7 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"c", "rank":7 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"d", "rank":7 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"e", "rank":7 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"f", "rank":7 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"g", "rank":7 }
+{ "@cmd":"entity" }
+
+{ "@c":"/component/piece/pawn" }
+{ "@c":"/component/colour", "colour":"black" }
+{ "@c":"/component/position", "file":"h", "rank":7 }
+{ "@cmd":"entity" }

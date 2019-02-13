@@ -213,12 +213,18 @@ defmodule OdgnConcatJsonTest do
       |> ConcatJSON.stream()
       |> Enum.to_list()
 
-    # |> Stream.map( fn(json) -> Jason.decode!(json) end)
-    # |> Enum.each(fn x -> IO.puts( ">>> result #{Jason.encode!(x)}") end)
-    # |> Enum.each(fn x -> IO.puts( ">>> result #{x}") end)
-    # |> Enum.each(fn x -> IO.puts( ">>> result"); IO.inspect(x) end)
-
     assert output == ['{"foo":"bar"}', '{"qux":"corge"}', '{"baz":{"waldo":"thud"}}']
+  end
+
+  test "bigger stream" do
+    output =
+      File.stream!("./test/data/chess.ldjson", [], 255)
+      |> ConcatJSON.stream()
+      |> Enum.to_list()
+
+    # IO.inspect output |> Enum.map( fn json -> Jason.decode!(json) end)
+
+    assert length(output) == 137
   end
 
   test "reduce" do
