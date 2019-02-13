@@ -1,0 +1,8 @@
+{"foo":"bar"}
+// ignore this
+{"qux":"corge"}
+{
+    "baz": { 
+        "waldo":"thud"
+    }
+}
