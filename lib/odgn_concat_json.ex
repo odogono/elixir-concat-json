@@ -49,6 +49,10 @@ defmodule ConcatJSON do
   end
 
 
+  @doc """
+
+  inspiration from https://stackoverflow.com/a/29408700/2377677
+  """
   def stream(enum) do
     enum
     |> Stream.transform( {}, fn(val,acc) ->
@@ -84,27 +88,29 @@ defmodule ConcatJSON do
     end)
   end
 
+  @doc """
+  Takes an enumeration and parses all of the values
+  """
+  def reduce(enum) do
+    { result, _acc } = Enum.reduce(enum, { [], {} }, fn value, { result, acc } ->
+      parse_result = case acc do
+        {:continue, buffer, opts } ->
+          ConcatJSON.parse_all(value, buffer, opts)
+        _ -> ConcatJSON.parse_all(value)
+      end
 
+      case parse_result do
+        {:ok, results} ->
+          { result ++ results, {} }
+        {:continue, [], _input, buffer, opts } ->
+          {result, {:continue, buffer, opts} }
+        {:continue, results, _input, buffer, opts } ->
+          {result ++ results, {:continue, buffer, opts} }
+      end
+    end)
+    result
+  end
 
-  # def parse_get_result(value) do
-  #   parse_with_options(value, return_acc_string: true)
-  # end
-
-  # def parse_with_options(value, opts \\ %{}) do
-  #   return_acc_string = Keyword.get(opts, :return_acc_string, false)
-  #   # return_result_string = Keyword.get(opts, :return_result_string, false)
-
-  #   {out, rest, acc, counts} = walk_parse(value)
-
-  #   if return_acc_string do
-  #     {out, to_string(Enum.reverse(acc))}
-  #   else
-  #     {out, rest, acc, counts}
-  #   end
-  # end
-
-  # def parse( binary ) do
-  # end
 
 
   defp parse(binary, acc , counts) do
